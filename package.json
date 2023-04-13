@@ -1,0 +1,37 @@
+{
+  "name": "feur-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc ",
+    "start": "node build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pascal-Flores/Feur-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pascal-Flores/Feur-API/issues"
+  },
+  "homepage": "https://github.com/Pascal-Flores/Feur-API#readme",
+  "dependencies": {
+    "@fastify/static": "^6.10.1",
+    "async": "^3.2.4",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.15.0",
+    "puppeteer": "^19.8.5",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/async": "^3.2.18",
+    "@types/node": "^18.15.11"
+  }
+}

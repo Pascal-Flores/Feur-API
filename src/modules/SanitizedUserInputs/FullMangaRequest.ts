@@ -1,5 +1,5 @@
-import { SupportedWebsites } from "../LinkValidator.ts";
-import FullMangaOptions from "../RequestsOptions/FullMangaOptions.ts";
+import { SupportedWebsites } from "../LinkValidator";
+import FullMangaOptions from "../RequestsOptions/FullMangaOptions";
 
 interface FullMangaRequest {
     url: string;

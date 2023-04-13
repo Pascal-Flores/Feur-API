@@ -1,4 +1,4 @@
-import OutputFormat from "../OutputFormat.ts";
+import OutputFormat from "../OutputFormat";
 
 interface FullMangaOptions {
     downloadChapters?: boolean;

@@ -1,7 +1,7 @@
-import Downloader from "./Downloader.ts";
-import DownloaderSushiscan from "./DownloaderSushiscan.ts";
-import { SupportedWebsites } from "../LinkValidator.ts";
-import InternalServerError from "../Errors/InternalServerError.ts";
+import Downloader from "./Downloader";
+import DownloaderSushiscan from "./DownloaderSushiscan";
+import { SupportedWebsites } from "../LinkValidator";
+import InternalServerError from "../Errors/InternalServerError";
 
 class DownloaderFactory {
     public static async createDownloader(website : SupportedWebsites): Promise<Downloader> {

@@ -1,8 +1,8 @@
-import InvalidRequestError from "../Errors/InvalidRequestError.ts";
-import OutputFormat from "../OutputFormat.ts";
-import FullMangaOptions from "../RequestsOptions/FullMangaOptions.ts";
-import FullMangaRequest from "../SanitizedUserInputs/FullMangaRequest.ts";
-import { LinkValidator, SupportedWebsites } from "../LinkValidator.ts";
+import InvalidRequestError from "../Errors/InvalidRequestError";
+import OutputFormat from "../OutputFormat";
+import FullMangaOptions from "../RequestsOptions/FullMangaOptions";
+import FullMangaRequest from "../SanitizedUserInputs/FullMangaRequest";
+import { LinkValidator, SupportedWebsites } from "../LinkValidator";
 
 class FullMangaRequestSanitizer {
     public static sanitize(userInput : any) : FullMangaRequest {
@@ -15,7 +15,7 @@ class FullMangaRequestSanitizer {
             website = LinkValidator.isLinkSupported(userInput.url);
         }
         catch (error) {
-            throw new InvalidRequestError(error);
+            throw new InvalidRequestError("Manga URL provided is not supported");
         }
 
         const mangaURL : string = userInput.url;
@@ -41,12 +41,12 @@ class FullMangaRequestSanitizer {
 
     private static sanitizeOptions(options : any) : FullMangaOptions {
         const sanitizedOptions : FullMangaOptions = {};
-        if (options.downloadChapters && typeof options.downloadChapters === "boolean")
+        if (options.downloadChapters  !== undefined && typeof options.downloadChapters === "boolean")
             sanitizedOptions.downloadChapters = options.downloadChapters;
         else 
             sanitizedOptions.downloadChapters = true;
-        if (options.outputFormat && typeof options.outputFormat === "string") 
-            if (options.outputFormat === OutputFormat.PDF || options.outputFormat === OutputFormat.CBZ || options.outputFormat === OutputFormat.CBR || options.outputFormat === OutputFormat.RAW)
+        if (options.outputFormat !== undefined && typeof options.outputFormat === "string") 
+            if (options.outputFormat === OutputFormat.CBZ || options.outputFormat === OutputFormat.CBR || options.outputFormat === OutputFormat.RAW)
                 sanitizedOptions.outputFormat = options.outputFormat;
             else
                 sanitizedOptions.outputFormat = OutputFormat.RAW;

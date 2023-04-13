@@ -1,4 +1,4 @@
-import InvalidRequestError from "./Errors/InvalidRequestError.ts";
+import InvalidRequestError from "./Errors/InvalidRequestError";
 
 class LinkValidator {
     /**
